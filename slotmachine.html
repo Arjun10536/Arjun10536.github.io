@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<style type="text/css">
+	.square{
+		height:100px;
+		width:100px;
+		margin:5px;
+		border: solid black 2px;
+		display:inline-block;
+	}
+
+	#handle{
+		height:100px;
+		width:20px;
+		margin:5px;
+		border: solid black 2px;
+		display:inline-block;
+	}
+	#scoreboard{
+		height:100px;
+		width:350px;
+		background-color:indianred;
+		margin:5px;
+		border:solid black 2px;
+		display: inline-block;
+	}
+
+</style>
+</head>
+<body>
+<div id="square1" class="square"></div>
+<div id="square2" class="square"></div>
+<div id="square3" class="square"></div>
+
+<div id="handle"></div>
+<div id ="scoreboard"></div>
+
+<script type="text/javascript">
+var images = ["blue", "magenta", "green","yellow","purple","orange","red","pink","brown","black","teal"]
+handle.addEventListener("click", function(){
+	let random = Math.floor(Math.random()*10)
+	let random2 = Math.floor(Math.random()*10)
+	let random3 = Math.floor(Math.random()*10)
+
+square1.style.backgroundColor = images[random]
+square2.style.backgroundColor = images[random2]
+square3.style.backgroundColor = images[random3]
+let score=50
+if(random1==random2&&random2==random3){
+	score=score+10
+scoreboard.innerText = score
+}
+
+
+
+}
+)
+
+</script>
+</body>
+</html>
