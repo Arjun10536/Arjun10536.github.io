@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+	.confetti{
+	height:10px;
+	width:10px;
+	background-color:indianred;
+	position:absolute;
+	margin:5px
+		}
+	#heart{
+		height:600px;
+		width:600px;
+		position:absolute;
+		background-image:url(heart.png);
+		left:400px;
+		top:200px;
+		background-size:contain;
+		background-repeat:no-repeat;
+	}
+	</style>
+	
+</head>
+<body>
+
+	<button id="button">colors</button>
+<a href="valentines.html"><div id="heart"></div></a>
+	<center><h1>Love you, mom</h1></center>
+	<script type="text/javascript">
+
+		let colors = ["blue", "green", "pink", "orange", "black", "yellow", "magenta"]
+function makeConfetti (x){
+	let confetti = document.createElement("div")
+	document.body.appendChild(confetti)
+	confetti.classList.add("confetti")
+	confetti.style.left = Math.random()*1000+"px"
+	confetti.style.top = Math.random()*200+"px"
+
+	function moveLeft(){
+	confetti.style.left = parseInt(confetti.style.left)+Math.random()*100+"px"
+	confetti.style.top = parseInt(confetti.style.top)+Math.random()*100+"px"
+	}// end of move left function
+
+	button.addEventListener("click", function(){
+		let randomNumber=Math.floor(colors.length*Math.random())
+		confetti.style.backgroundColor=colors[randomNumber]
+		console.log("is this working?")
+	})
+
+
+setInterval(moveLeft, 150)
+
+} // end of the make confetti function
+
+
+for (let i=0; i<1001;i=i+1){
+	makeConfetti(i)
+	}
+	</script>
+
+
+
+
+</body>
+</html>
