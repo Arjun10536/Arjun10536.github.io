@@ -47,11 +47,8 @@ function makeConfetti (x){
 
 	button.addEventListener("click", function(){
 		let randomNumber=Math.floor(colors.length*Math.random())
-		confetti.style.backgroundColor=colors[randomNumber]
-		console.log("is this working?")
+			confetti.style.backgroundColor=colors[randomNumber]	
 	})
-
-
 setInterval(moveLeft, 150)
 
 } // end of the make confetti function
@@ -61,9 +58,5 @@ for (let i=0; i<1001;i=i+1){
 	makeConfetti(i)
 	}
 	</script>
-
-
-
-
 </body>
 </html>
