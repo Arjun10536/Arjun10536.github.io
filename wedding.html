@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let guests = ["henry","arjun","eshan","michael"]
+
+	function makeDiv(input){
+		let square = document.createElement("div")
+		document.body.appendChild(square)
+		square.style.width="200px"
+		square.style.height="100px"
+		square.style.backgroundColor="lightblue"
+		square.style.margin="5px"
+		square.style.display="inline-block"
+		square.innerText=guests[input]
+		square.style.textAlign="center"
+		square.style.fontSize="50px"
+
+	}
+	for(let i=0; i<guests.length; i=i+1){
+	makeDiv(i)
+	}
+	</script>
+
+</body>
+</html>
