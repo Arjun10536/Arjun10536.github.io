@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<center>
+	<p id="score"></p>
+<div id="clock"></div>
+<div id="random"></div>
+<input type="text" id="guessInput" placeholder="Type your answer here">
+<button onclick="checkAnswer()">Submit</button>
+<p id="feedback"></p>
+<style type="text/css">
+	#clock{
+		font-size:30px;
+		margin-top:10px;
+	}
+	#random{
+		font-size:50px;
+		margin-top:250px;
+	}
+#guestInput{
+	height:30px;
+	width:300px;
+	font-size:12px;
+}
+</style>
+</center>
+<script type="text/javascript">
+function checkAnswer(){
+	let userGuess=document.getElementById("guessInput").value.trim().toLowerCase()
+	let correctAnswer=countryname.toLowerCase().replace(/\s+/g, '')
+	if (userGuess===correctAnswer){
+		clearInterval(fullTimer)
+		document.getElementById("feedback").innerText="Correct ✅"
+		let score=time*100
+		document.getElementById("score").innerText = "Your score: " + score;
+	}
+	else{
+		document.getElementById("feedback").innerText="Try Again ❌"
+	}
+	}
+
+
+let time = 30;
+function timer(){
+	time=time-1
+	clock.innerText=time
+	if (time<=0){clearInterval(fullTimer)
+	document.getElementById("feedback").innerText="⏰ Time's up! The correct answer is: "+countryname;
+	}
+}
+
+let fullTimer = setInterval(timer,1000)
+
+let countries = [
+	"afghanistan",
+	"albania",
+	"algeria",
+	"andorra",
+	"angola",
+	"anguilla",
+	"antigua and Barbuda",
+	"argentina",
+	"armenia",
+	"australia",
+	"austria",
+	"azerbaijan",
+	"bahamas",
+	"bahrain",
+	"bangladesh",
+	"barbados",
+	"belarus",
+	"belgium",
+	"belize",
+	"benin",
+	"bhutan",
+	"bolivia",
+	"bosnia and herzegovina",
+	"botswana",
+	"brazil",
+	"brunei",
+	"bulgaria",
+	"burkina Faso",
+	"burundi",
+	"cape verde",
+	"cambodia",
+	"cameroon",
+	"canada",
+	"central african republic",
+	"chad",
+	"chile",
+	"china",
+	"colombia",
+	"comoros",
+	"congo",
+	"costa rica",
+	"croatia",
+	"cuba",
+	"cyprus",
+	"czechia",
+	"ivory coast",
+	"denmark",
+	"djibouti",
+	"dominica",
+	"dominican republic",
+	"ecuador",
+	"egypt",
+	"el salvador",
+	"equatorial guinea",
+	"eritrea",
+	"estonia",
+	"eswatini",
+	"ethiopia",
+	"fiji",
+	"finland",
+	"france",
+	"french guiana",
+	"gabon",
+	"gambia",
+	"georgia",
+	"germany",
+	"ghana",
+	"greece",
+	"grenada",
+	"guatemala",
+	"guinea",
+	"guinea-bissau",
+	"guyana",
+	"haiti",
+	"honduras",
+	"hungary",
+	"iceland",
+	"india",
+	"indonesia",
+	"iran",
+	"iraq",
+	"ireland",
+	"israel",
+	"italy",
+	"jamaica",
+	"japan",
+	"jordan",
+	"kazakhstan",
+	"kenya",
+	"kiribati",
+	"north korea",
+	"south korea ",
+	"kuwait",
+	"kyrgyzstan",
+	"laos",
+	"latvia",
+	"lebanon",
+	"lesotho",
+	"liberia",
+	"libya",
+	"liechtenstein",
+	"lithuania",
+	"luxembourg",
+	"madagascar",
+	"malawi",
+	"malaysia",
+	"maldives",
+	"mali",
+	"malta",
+	"marshall islands",
+	"mauritania",
+	"mauritius",
+	"mexico",
+	"micronesia",
+	"moldova",
+	"monaco",
+	"mongolia",
+	"montenegro",
+	"morocco",
+	"mozambique",
+	"myanmar",
+	"namibia",
+	"nauru",
+	"nepal",
+	"netherlands",
+	"new zealand",
+	"nicaragua",
+	"niger",
+	"nigeria",
+	"norway",
+	"oman",
+	"pakistan",
+	"palau",
+	"palestine",
+	"panama",
+	"papua new guinea",
+	"paraguay",
+	"peru",
+	"philippines",
+	"poland",
+	"portugal",
+	"qatar",
+	"north macedonia",
+	"romania",
+	"russia",
+	"rwanda",
+	"saint kitts and nevis",
+	"saint lucia",
+	"saint vincent and the grenadines",
+	"samoa",
+	"san marino",
+	"sao tome and principe",
+	"saudi arabia",
+	"senegal",
+	"serbia",
+	"seychelles",
+	"sierra leone",
+	"singapore",
+	"slovakia",
+	"slovenia",
+	"solomon islands",
+	"somalia",
+	"south africa",
+	"south sudan",
+	"spain",
+	"sri lanka",
+	"sudan",
+	"suriname",
+	"sweden",
+	"switzerland",
+	"syria",
+	"taiwan",
+	"tajikistan",
+	"tanzania",
+	"thailand",
+	"togo",
+	"tonga",
+	"trinidad and tobago",
+	"tunisia",
+	"turkey",
+	"turkmenistan",
+	"tuvalu",
+	"uganda",
+	"ukraine",
+	"united arab emirates ",
+	"united kingdom",
+	"united states of america",
+	"uruguay",
+	"uzbekistan",
+	"vanuatu",
+	"venezuela",
+	"vietnam",
+	"yemen",
+	"zambia",
+	"zimbabwe",
+	
+];
+function scramble(word) {
+	let scram = word.replace(/\s+/g, '').split('');
+	for (let i = scram.length - 1; i > 0; i--) {
+		let j = Math.floor(Math.random() * (i + 1));
+		[scram[i], scram[j]] = [scram[j], scram[i]];
+	}
+	return scram.join('');
+}
+let randomcountry=Math.floor(Math.random()*countries.length)
+let countryname=countries[randomcountry]
+let scrambled=scramble(countryname);
+random.innerText=scrambled;
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	
+</head>
+<body>
+<center>
+
+<h2 id="question"></h2>
+  <input type="text" id="answerInput" placeholder="Your answer here">
+  <button onclick="checkTriviaAnswer()">Submit</button>
+  <p id="result"></p>
+  <p id="scoreDisplay"></p>
+
+
+<script type="text/javascript">
+	let questions = [
+	{question: "What is the capital of Peru?", answer: "Lima"},
+	{question:"Which country is Petra located in?", answer: "Jordan"},
+	{question: "Which country has the most lakes?", answer: "Canada"},
+	{question:"Which country has the most volcanoes", answer:"Indonesia"},
+	{question:"Which country is home to Mount Everest?", answer: "Nepal"},
+	{question: "Which country in Afirca has the largest population", answer: "Nigeria"},
+	{question: "Which country is home to the largest waterfall", answer:"Venezuela"},
+	{question:"Which country has the Galapagos islands?", answer:"Ecuador"},
+	{question: "Which country has more sheep than people?", answer:"New Zealand"},
+	{question: "Which country has the most pyramids?", answer: "Sudan"},
+	{question: "Which country has the highest average IQ?", answer: "Japan"},
+	{question:"Which country has the highest population density?", answer:"Monaco"},
+	{question:"What country is considered the horn of Africa?", answer:"Somalia"},
+	{question:"Which country is home to the world's tallest building", answer: "United Arab Emirates"},
+	{question:"What is the happiest country in the world?", answer:"Finland"}
+]
+	 let score = 0;
+    let selected = questions[Math.floor(Math.random() * questions.length)];
+
+    document.getElementById("question").innerText = selected.question;
+
+    function checkTriviaAnswer() {
+      let userInput = document.getElementById("answerInput").value.trim().toLowerCase();
+      if (userInput === selected.answer.toLowerCase()) {
+        score += 1000;
+        document.getElementById("result").innerText = "Correct!";
+      } else {
+        document.getElementById("result").innerText = "Wrong! The correct answer was: " + selected.answer;
+      }
+      document.getElementById("scoreDisplay").innerText = "Score: " + score;
+    }
+
+</script>
+</center>
+</body>
+</html>
